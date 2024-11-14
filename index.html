@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="imgs/ImagemDois.png">
+    <style>
+        body {
+            background-color: #A9A9A9;
+        }
+        h1, h4 {
+            text-align: center;
+        }
+        /* Estilo personalizado para a navbar */
+        .custom-navbar {
+            background-color: #343a40;
+            padding: 0.5rem 1rem;
+        }
+
+        .custom-navbar .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .custom-navbar .navbar-nav .nav-link {
+            color: #ffffff;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-navbar .navbar-nav .nav-link i {
+            margin-right: 8px;
+        }
+
+        .custom-navbar .navbar-nav .nav-link:hover {
+            color: #17a2b8;
+        }
+
+        .custom-navbar .navbar-toggler {
+            color: #ffffff;
+            border: none;
+        }
+
+        .search-bar {
+            width: 300px;
+        }
+
+        .btn-custom-login, .btn-custom-signin {
+            color: #ffffff;
+            border: 1px solid #ffffff;
+            margin-left: 10px;
+        }
+
+        .btn-custom-login:hover, .btn-custom-signin:hover {
+            background-color: #17a2b8;
+            border-color: #17a2b8;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg custom-navbar fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="imgs/ImagemDois.png" width="30" height="30" alt="Logo"> Cidadão Conectado
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="pagsobreoprojeto.html" target="_self"><i class="fas fa-info-circle"></i> Sobre o Projeto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pagminhassolicitacoes.html" target="_self"><i class="fas fa-tasks"></i> Minhas Solicitações</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Ajuda e Suporte</a>
+                </li>
+            </ul>
+            
+            <a href="segundapagina.html" target="_self"><button class="btn btn-custom-login ml-3">Login</button></a>
+            <a href="segundapagina.html" target="_self"><button class="btn btn-custom-signin">Cadastro</button></a>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="container mt-5 pt-5">
+        <h1 class="mt-5">Bem-vindo ao Cidadão Conectado</h1>
+        <h4>Conectando cidadãos e transformando cidades: juntos pela melhoria do espaço urbano.</h4>
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Formulário de Reporte -->
+            <div class="col-md-4">
+                <h3>Reporte Aqui</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" class="form-control" id="cidade" placeholder="Cidade">
+                    </div>
+                    <div class="form-group">
+                        <label for="endereco">Endereço da Falha</label>
+                        <input type="text" class="form-control" id="endereco" placeholder="Endereço da Falha">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipoFalha">Tipo de Falha</label>
+                        <input type="text" class="form-control" id="tipoFalha" placeholder="Tipo de Falha">
+                    </div>
+                    <div class="form-group">
+                        <label for="data">Data</label>
+                        <input type="date" class="form-control" id="data">
+                    </div>
+                    <div class="form-group">
+                        <label for="descricao">Descrição da Falha</label>
+                        <textarea class="form-control" id="descricao" rows="3" placeholder="Descrição da Falha"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+
+            <!-- Imagem ou Conteúdo de Destaque -->
+            <div class="col-md-8 d-flex justify-content-center align-items-center">
+                <img src="imgs/paginadois.png" class="img-fluid" alt="Imagem de Destaque" style="max-height: 8000px; max-width: 8000px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

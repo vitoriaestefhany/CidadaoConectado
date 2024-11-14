@@ -1,0 +1,109 @@
+/* Fundo e layout */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('imgs/ImagemDois.jpeg'); 
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8); /* Camada de transparência */
+    z-index: 1;
+}
+
+.content {
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+}
+
+.logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+.form-login {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.forgot-password {
+    display: block;
+    font-size: 0.9em;
+    color: #007bff;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn-primary {
+    width: 48%;
+}
+
+.btn-outline-primary {
+    width: 48%;
+}
+
+/*Segunda pagina*/
+
+#bodymain{
+    font-family: Arial, sans-serif;
+    background-color:#f0f2f5;
+}
+
+
+
+.form-inline input[type="search"] {
+    width: 300px;
+}
+
+h3 {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    width: 100%;
+}
+
+.col-md-8 img {
+    border-radius: 5px;
+}

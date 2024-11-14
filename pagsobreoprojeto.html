@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Projeto</title>
+    <link rel="icon" href="imgs/ImagemDois.png">
+    <style>
+        body {
+            background-color: #A9A9A9;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Barra de navegação */
+        .custom-navbar {
+            background-color: #343a40;
+            padding: 0.8rem 1rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .custom-navbar .navbar-brand {
+            color: #ffffff;
+            font-weight: 780;
+            font-size: 1.25rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-navbar .navbar-brand img {
+            margin-right: 6px;
+        }
+
+        /* Botão de voltar */
+        .back-button {
+            color: #ffffff;
+            background-color: #343a40;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Container principal */
+        .content-container {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para a logo */
+        .logo-container {
+            max-width: 30%;
+            margin-right: 100px;
+            margin-left: -300px;
+        }
+
+        /* Container específico para a tabela */
+        .table-container {
+            flex: 1;
+            margin-top: 20px;
+            margin-right: 80px;
+            margin-left: -50px;
+        }
+
+        .custom-table {
+            background-color: transparent;
+            border-collapse: collapse;
+            color: #343a40;
+            margin: 0;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .custom-table td {
+            padding: 20px;
+            text-align: justify;
+            border: 2px solid #343a40;
+        }
+
+        h1 {
+            margin: 0;
+            color: #ffffff;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        p {
+            margin-top: 10px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="custom-navbar">
+        <a class="navbar-brand" href="#">
+            <img src="imgs/ImagemDois.png" width="30" height="30" alt="Logo"> Cidadão Conectado
+        </a>
+    </nav>
+
+    <!-- Botão de voltar -->
+    <button class="back-button" onclick="window.location.replace('index.html');">← Voltar</button>
+
+    <div class="content-container">
+        <!-- Logo à esquerda -->
+        <div class="logo-container">
+            <img src="imgs/paginadois.png" alt="Logo" style="width: 100%;">
+        </div>
+
+        <!-- Tabela à direita -->
+        <div class="table-container">
+            <table class="custom-table">
+                <tr>
+                    <td>
+                        <h1>Objetivo e Funcionamento do Site</h1>
+                        <p>O site <strong><u>Cidadão Conectado</u></strong> tem como finalidade facilitar a comunicação entre os cidadãos e as entidades responsáveis, criando uma plataforma onde os moradores podem relatar problemas urbanos, como buracos nas ruas, acúmulo de lixo, árvores em risco de queda, depredação de bens públicos, iluminação pública defeituosa, entre outros, podendo acompanhar o andamento de suas solicitações. Esse sistema busca tornar a cidade mais inclusiva, segura e sustentável, incentivando a participação ativa dos cidadãos na melhoria de sua comunidade. Alinhado com o Objetivo 11 da ONU, que visa cidades inclusivas e resilientes, o site promove transparência, agilidade na resolução de problemas e uma gestão urbana mais eficiente. Dessa forma, <strong><u>Cidadão Conectado</u></strong> contribui para uma cidade mais conectada e participativa, melhorando a qualidade de vida de todos.</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
