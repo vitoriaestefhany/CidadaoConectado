@@ -9,4 +9,4 @@
   <li>Javascript</li>
 </ul>
 
-![paginadois](https://github.com/user-attachments/assets/3c5154e7-008d-4c27-a45f-e7b93556a590)
+![paginadois](https://github.com/user-attachments/assets/5ea3286f-c780-4700-bf51-887e04a43686)
