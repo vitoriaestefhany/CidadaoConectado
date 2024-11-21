@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajuda e Suporte</title>
+    <link rel="icon" href="imgs/ImagemDois.png">
+    <style>
+        body {
+            background-color: #A9A9A9;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Barra de navegação */
+        .custom-navbar {
+            background-color: #343a40;
+            padding: 0.8rem 1rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .custom-navbar .navbar-brand {
+            color: #ffffff;
+            font-weight: 780;
+            font-size: 1.25rem;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-navbar .navbar-brand img {
+            margin-right: 6px;
+        }
+
+        /* Botão de voltar */
+        .back-button {
+            color: #ffffff;
+            background-color: #343a40;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Estilo para tabelas */
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+            position: relative;
+            font-size: 17px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Estilo para texto principal */
+        .highlighted-text {
+            font-size: 20px;
+        }
+
+        .expand-btn {
+            cursor: pointer;
+            font-size: 25px;
+            color: green;
+            border: none;
+            background: none;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hidden-row {
+            display: none;
+        }
+
+        .info-container {
+            padding: 10px;
+        }
+
+        /* Estilo de passos */
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .step-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            background-color: #134161;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+
+        .step-content {
+            margin-left: 10px;
+        }
+
+        .step-content img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            color: #841a22;
+            font-weight: bold;
+        }
+
+        /* Estilo de botões */
+        .button {
+            display: inline-block;
+            background-color: #46b863;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        /* Estilo do chat */
+        .chat-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            border: 2px solid #134161;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            overflow: hidden; /* Evita elementos saindo */
+            box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+            transition: all 0.3s ease; 
+        }
+
+        .chat-box.minimized {
+            width: 150px;
+            height: 50px;
+            padding: 10px;
+        }   
+
+        .chat-box.minimized .chat-body {
+            display: none;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }   
+
+        .chat-header button {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: #134161;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            margin-top: 10px;
+            overflow-y: auto; 
+        }
+
+        .chat-form input, 
+        .chat-form textarea, 
+        .chat-form button {
+            width: 100%; 
+            box-sizing: border-box; 
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .chat-form textarea {
+            height: 100px;
+            resize: none; 
+        }
+
+        .chat-form button {
+            background-color: #46b863;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .chat-form button:hover {
+            background-color: #45a049;
+        }    
+    </style>
+</head>
+<body>
+    <nav class="custom-navbar">
+        <a class="navbar-brand" href="#">
+            <img src="imgs/ImagemDois.png" width="30" height="30" alt="Logo"> Cidadão Conectado
+        </a>
+    </nav>
+
+    <!-- Botão de voltar -->
+    <button class="back-button" onclick="window.location.replace('index.html');">← Voltar</button>
+
+    <h1>Central De Ajuda</h1>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Texto destacado com tamanho aumentado -->
+                    <span class="highlighted-text">Como faço para publicar uma reclamação?</span>
+                    <button class="expand-btn" onclick="toggleRow(this)">+</button>
+                </td>
+            </tr>
+            <tr class="hidden-row">
+                <td>
+                    <div class="info-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Faça login ou crie sua conta no <span class="highlight">Cidadão Conectado</span>.</p>
+                                <a href="#" class="button">Faça login ou cadastre-se</a>
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Preencha todos os campos da solicitação. Seja claro(a) e objetivo(a) ao detalhar o ocorrido; isso ajudará a resolver o problema de forma mais rápida.</p>
+                                <img src="imgs/reporte aqui1.PNG" alt="Foto Reporte">
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p>Logo após clique no botão.</p>
+                                <img src="imgs/enviar.PNG" alt="Botão Enviar">
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <p>Sucesso! Sua solicitação foi enviada ao órgão responsável. Agora é só aguardar a resolução do problema!</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Texto destacado com tamanho aumentado -->
+                    <span class="highlighted-text">Não tenho mais acesso a minha conta, como faço para entrar?</span>
+                    <button class="expand-btn" onclick="toggleRow(this)">+</button>
+                </td>
+            </tr>
+            <tr class="hidden-row">
+                <td>
+                    <div class="info-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <p>Acesse o botão "Entrar", localizado no canto superior direito do site. Em seguida, clique na opção "Esqueci minha senha".</p>
+                                <img src="imgs/esqueci senha.PNG" alt="Esqueci senha">
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <p>Insira o número do seu CPF, marque a opção "Não sou um robô" e clique no botão "Continuar".</p>
+                                <img src="imgs/imagem esqueci a senha1.PNG" alt="Foto esqueci senha">
+                            </div>
+                        </div>
+
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <p><strong>Escolha se quer receber um e-mail ou um código via SMS, para fazer a redefinição de sua senha</strong></p>
+                                <p><strong>Se você optar pelo e-mail:</strong></p>
+                                <ul>
+                                    <li>Clique no botão “Redefinir Senha”, ele direciona você ao site para que a mudança seja concluída. Caso o e-mail seja recebido na caixa de Spam ou lixeira, mova para a caixa de entrada e o botão aparecerá.</li>
+                                    <br>
+                                    <li>Depois da redefinição, volte para a tela de login e informe o e-mail cadastrado ou seu CPF e a nova senha.</li>
+                                </ul>
+                                <p><strong>Se você optar pelo SMS no seu celular:</strong></p>
+                                <p>Digite o código recebido via SMS, valide a caixa “Não sou um robô” e clique em “Verificar”. Depois é só criar uma senha e fazer login</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Texto destacado com tamanho aumentado -->
+                    <span class="highlighted-text">Por que o Cidadão Conectado desativou minha solicitação?</span>
+                    <button class="expand-btn" onclick="toggleRow(this)">+</button>
+                </td>
+            </tr>
+            <tr class="hidden-row">
+                <td>
+                    <div class="info-container">
+                        <div class="step">
+                            <div class="step-content">
+                                <p>Removemos uma reclamação quando identificamos que ela não está em conformidade com nossos termos de uso. Isso pode ocorrer em dois casos principais:</p>
+                                <ol>
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <p><strong>Solicitação não consumerista</strong></p>
+                                            <p>O Cidadão Conectado é uma plataforma de conteúdo voltada para a resolução de problemas urbanos. Se sua solicitação não se enquadrar nesses critérios, não poderá ficar ativa.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <p><strong>Duplicidade</strong></p>
+                                            <p>No Cidadão Conectado, cada solicitação deve equivaler a um problema, por isso não é permitido reclamar mais de uma vez sobre a mesma situação. Sempre que o órgão responsável identifica uma duplicidade, nós desativamos uma das solicitações e mantemos ativa a mais adequada para a continuidade do atendimento.</p>
+                                        </div>
+                                    </div>                                    
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Texto destacado com tamanho aumentado -->
+                    <span class="highlighted-text">Como vou ter um retorno do órgão responsável?</span>
+                    <button class="expand-btn" onclick="toggleRow(this)">+</button>
+                </td>
+            </tr>
+            <tr class="hidden-row">
+                <td>
+                    <div class="info-container">
+                        <div class="step">
+                            <div class="step-content">
+                                <p>Eles podem entrar em contato com você de duas formas:</p>
+                                <ol>
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <p><strong>Mensagem via Whatsapp</strong></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <p><strong>E-mail</strong></p>
+                                        </div>
+                                    </div>                                    
+                                </ol>
+                                <p>Por isso, é importante ficar atento a estes canais.</p>
+                                <p><strong>Prazo de resposta</strong></p>
+                                <p>Varia de um órgão para outro. Se depois de no máximo 30 dias você não receber nenhum retorno, poderá avaliar a reclamação com esta informação.</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <!-- Texto destacado com tamanho aumentado -->
+                    <span class="highlighted-text">Como faço para desativar uma solicitação?</span>
+                    <button class="expand-btn" onclick="toggleRow(this)">+</button>
+                </td>
+            </tr>
+            <tr class="hidden-row">
+                <td>
+                    <div class="info-container">
+                        <div class="step">
+                            <div class="step-content">
+                                <p>Você tem todo o direito de retirar a sua solicitação do ar! Para isso, siga o passo a passo abaixo:</p>
+                                <ol>
+                                    <div class="step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <p>Acesse a página “Minhas reclamações” na parte superior da página.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <p><strong>Encontre a solicitação que deseja desativar e clique em “cancelar solicitação”.</strong></p>
+                                            <img src="imgs/cancelar solicitação1.PNG" alt="Cancelar solicitação">
+                                        </div>
+                                    </div>                                    
+                                </ol>
+                                <p>Pronto! Sua solicitação será recebida pelo nosso sistema e processada automaticamente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+     <!-- Pergunta de dúvidas e botão "Fale com a gente" -->
+     <p style="text-align: center; font-size: 20px;">Ainda está com dúvidas?</p>
+     <div style="text-align: center;">
+         <button class="button" onclick="openChat()">Fale com a gente</button>
+     </div>
+ 
+     <!-- Caixinha de chat -->
+     <div class="chat-box" id="chatBox">
+         <div class="chat-header">
+             <span>Chat</span>
+             <div>
+                 <button onclick="minimizeChat()">-</button>
+                 <button onclick="closeChat()">X</button>
+             </div>
+         </div>
+         <div class="chat-body">
+             <form class="chat-form">
+                 <input type="text" placeholder="Nome" required>
+                 <input type="email" placeholder="E-mail" required>
+                 <input type="tel" placeholder="Telefone" required>
+                 <textarea placeholder="Escreva sua dúvida" required></textarea>
+                 <button type="submit">Enviar</button>
+             </form>
+         </div>
+     </div>
+
+    <script>
+        function toggleRow(button) {
+            const hiddenRow = button.closest('tr').nextElementSibling;
+            if (hiddenRow.style.display === "table-row") {
+                hiddenRow.style.display = "none";
+                button.textContent = "+";
+            } else {
+                hiddenRow.style.display = "table-row";
+                button.textContent = "-";
+            }
+        }
+
+         // Função para abrir e fechar a caixa de contato
+         function toggleContactBox() {
+            const contactBox = document.getElementById('contactBox');
+            if (contactBox.style.display === "none" || contactBox.style.display === "") {
+                contactBox.style.display = "block";
+            } else {
+                contactBox.style.display = "none";
+            }
+        }
+
+        // Adiciona um evento de envio para o formulário 
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert("Sua dúvida foi enviada!"); // Apenas uma mensagem de confirmação  
+            toggleContactBox(); // Fecha a caixa após enviar
+        });
+
+        function openChat() {
+            document.getElementById('chatBox').style.display = 'flex'; // Exibe o chat
+        }
+
+        function closeChat() {
+            document.getElementById('chatBox').style.display = 'none'; // Esconde o chat
+        }
+
+        function minimizeChat() {
+            const chatBox = document.getElementById('chatBox');
+            const chatBody = chatBox.querySelector('.chat-body');
+            if (chatBody.style.display === 'none') {
+                chatBody.style.display = 'flex'; // Exibe a parte de mensagens
+            } else {
+                chatBody.style.display = 'none'; // Esconde a parte de mensagens
+            }
+        }
+
+
+        function openChat() {
+            document.getElementById('chatBox').style.display = 'flex'; // Exibe o chat
+        }
+
+        function closeChat() {
+            document.getElementById('chatBox').style.display = 'none'; // Esconde o chat
+        }
+
+        function minimizeChat() {
+            const chatBox = document.getElementById('chatBox');
+            chatBox.classList.toggle('minimized'); // Alterna entre minimizar e restaurar
+        }
+    </script>
+</body>
+</html>
