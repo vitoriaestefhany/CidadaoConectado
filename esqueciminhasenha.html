@@ -52,6 +52,10 @@
         .btn {
             width: 100%;
         }
+        .btn:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body>
@@ -60,7 +64,7 @@
         <img src="imgs/ImagemDois.png" alt="Logo Cidadão Conectado" class="logo">
         <h1 class="title">Esqueceu a senha?</h1>
         <p>Não se preocupe! Informe o seu CPF para localizarmos seu cadastro.</p>
-        <form>
+        <form id="passwordRecoveryForm">
             <div class="form-group">
                 <input type="text" id="cpf" class="form-control" placeholder="Digite o CPF" maxlength="14" required>
             </div>
@@ -68,17 +72,41 @@
                 <input type="checkbox" id="recaptcha">
                 <label for="recaptcha">Não sou um robô</label>
             </div>
-            <button type="submit" class="btn btn-primary">Continuar</button>
+            <button type="button" class="btn btn-primary" id="continueBtn" onclick="proceed()" disabled>Continuar</button>
         </form>
     </div>
 
     <script>
+        // Formatar CPF
         document.getElementById('cpf').addEventListener('input', function (e) {
             let value = e.target.value.replace(/\D/g, ''); 
             value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
             value = value.replace(/(\d{3})(\d)/, '$1.$2'); 
             value = value.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
             e.target.value = value;
+            validateForm();
+        });
+
+        // Verificar se o CPF foi preenchido e a caixinha marcada
+        function validateForm() {
+            const cpf = document.getElementById('cpf').value;
+            const recaptcha = document.getElementById('recaptcha').checked;
+            const continueBtn = document.getElementById('continueBtn');
+            if (cpf.length === 14 && recaptcha) {
+                continueBtn.disabled = false;
+            } else {
+                continueBtn.disabled = true;
+            }
+        }
+
+         // Função para continuar para a próxima página
+         function proceed() {
+            location.href = 'esqueciminhasenha2.html';
+        }
+
+        // Adicionar listener no checkbox
+        document.getElementById('recaptcha').addEventListener('change', function() {
+            validateForm();
         });
     </script>
 </body>

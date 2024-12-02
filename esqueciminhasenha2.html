@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esqueci Minha Senha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="imgs/ImagemDois.png">
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('imgs/ImagemDois.jpeg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            text-align: center;
+            margin: auto;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option .details {
+            flex-grow: 1;
+            text-align: left;
+        }
+
+        .option .details h2 {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .option .details p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .option .details .info {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-option {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .btn-option:hover {
+            background-color: #0056b3;
+        }
+
+        /* Classes específicas para imagens */
+        .email-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 15px;
+        }
+
+        .sms-icon {
+            width: 50px;
+            height: 35px;
+            margin-right: 15px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="container">
+        <h1 class="title">Escolha como prefere recuperar sua senha</h1>
+        <div class="option">
+            <img class="email-icon" src="imgs/icon email.png" alt="Ícone de E-mail">
+            <div class="details">
+                <h2><strong>E-mail</strong></h2>
+                <p>Receba um link de recuperação no e-mail:</p>
+                <p class="info">ab************c@h***ail.com</p>
+            </div>
+            <button class="btn-option" onclick="selectOption('email')">Receber no e-mail</button>
+        </div>
+        <div class="option">
+            <img class="sms-icon" src="imgs/icon celular.png" alt="Ícone de SMS">
+            <div class="details">
+                <h2><strong>Celular (SMS)</strong></h2>
+                <p>Receba um código de verificação no número:</p>
+                <p class="info">*******1234</p>
+            </div>
+            <button class="btn-option" onclick="selectOption('sms')">Receber via SMS</button>
+        </div>
+    </div>
+    <script>
+        function selectOption(option) {
+            if (option === 'email') {
+                alert('Você escolheu receber no e-mail.');
+            } else if (option === 'sms') {
+                alert('Você escolheu receber via SMS.');
+            }
+        }
+
+        function tryAnotherWay() {
+            alert('Opção de recuperação alternativa selecionada.');
+        }
+    </script>
+</body>
+</html>
